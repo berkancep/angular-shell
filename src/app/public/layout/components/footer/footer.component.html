@@ -1,0 +1,36 @@
+<footer class="footer">
+    <div class="container">
+        <a class="footer__logo" href="#">
+            <img *ngIf="footer.logo as logo" style="width: 3.125rem;" [src]="logo.src" [alt]="logo.alt"/>
+        </a>
+
+        <div class="footer__socials">
+            <ng-template [ngIf]="footer.socials">
+                <a *ngFor="let social of footer.socials" [href]="social.link.src" [target]="social.link.target">
+                    <img width="25" [src]="social.icon.src" [alt]="social.icon.alt"/>
+                </a>
+            </ng-template>
+        </div>
+
+        <ng-template [ngIf]="footer.links">
+            <div class="footer__links col-1">
+                <ng-container *ngFor="let link of footer.links">
+                    <a *ngIf="link.visible && link.order === 'col-1' " [routerLink]="link.routerLink">{{link.name}}</a>
+                </ng-container>
+            </div>
+            <div class="footer__links col-2">
+                <ng-container *ngFor="let link of footer.links">
+                    <a *ngIf="link.visible && link.order === 'col-2' " [routerLink]="link.routerLink">{{link.name}}</a>
+                </ng-container>
+            </div>
+        </ng-template>
+
+        <div class="footer__cta">
+            <a href="" class="button">Request Invite</a>
+        </div>
+
+        <div class="footer__copyright">
+            &copy; Berkan Çep Tüm Hakları Saklıdır.
+        </div>
+    </div>
+</footer>

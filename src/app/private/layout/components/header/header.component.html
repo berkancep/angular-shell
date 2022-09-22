@@ -1,0 +1,6 @@
+<ng-container *ngIf="{ title: title$ | async, color: color$ | async } as data">
+    <div class="header" [style.color]="data.color">
+        Header {{data.title | uppercase}}
+    </div>
+</ng-container>
+

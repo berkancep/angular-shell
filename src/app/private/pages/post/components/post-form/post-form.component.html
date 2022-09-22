@@ -1,0 +1,12 @@
+<form [formGroup]="postForm" (ngSubmit)="onFormSubmit()">
+    <input type="text" formControlName="userId">
+    <br>
+    <input type="text" formControlName="title">
+    <br>
+    <textarea rows="3" formControlName="body"> </textarea>
+    <br>
+    <rating-input formControlName="star"></rating-input>
+    <br>
+    <button type="submit">Kaydet</button>
+    <button [routerLink]="['/post']" type="button">İptal</button>
+</form>

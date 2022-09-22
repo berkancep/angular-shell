@@ -1,0 +1,48 @@
+.hero {
+  background-color: $veryLightGray;
+
+  .container {
+    @include breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    position: relative;
+    background-image: url('https://www.teahub.io/photos/full/190-1903367_dark-blue-minimalist-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    min-height: 17.5rem;
+
+    @include breakpoint-up(large) {
+      height: 41rem;
+      flex: 3;
+      order: 2;
+      background-image: url('https://coolhdwall.com/storage/202103/minimalist-background-twilight-breeze-4k-wallpaper-3840x2160.jpg');
+      background-position: left center;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-image: url('https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg');
+      background-size: 33%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    @include breakpoint-up(large) {
+      flex: 2;
+      order: 1;
+      text-align: left;
+    }
+  }
+}

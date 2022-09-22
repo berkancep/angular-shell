@@ -1,0 +1,32 @@
+<header [class.open]="isOpenHeaderMenu" class="header">
+
+    <div [ngClass]="isOpenHeaderMenu ? 'fade-in' : 'fade-out'" class="overlay has-fade"></div>
+
+    <nav class="container container-pall flex flex-jc-sb flex-ai-c">
+        <a href="/" class="header__logo">
+            <img src="https://cdn.worldvectorlogo.com/logos/angular-icon.svg" alt="logo">
+        </a>
+        <a (click)="onClickToggle()" class="header__toggle hide-for-desktop">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+        <div class="header__links hide-for-mobile">
+            <ng-container *ngTemplateOutlet="menu"></ng-container>
+        </div>
+
+        <a href="#" class="button header__cta hide-for-mobile">Request Invite</a>
+    </nav>
+
+    <div [ngClass]="isOpenHeaderMenu ? 'fade-in' : 'fade-out'" class="header__menu has-fade">
+        <ng-container *ngTemplateOutlet="menu"></ng-container>
+    </div>
+
+    <ng-template #menu>
+        <ng-container *ngFor="let menu of menus">
+            <a *ngIf="menu.visible" [routerLink]="menu.routerLink">{{menu.name}}</a>
+        </ng-container>
+    </ng-template>
+
+</header>
